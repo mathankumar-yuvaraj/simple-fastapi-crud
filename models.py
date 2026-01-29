@@ -1,12 +1,9 @@
-from sqlalchemy import Table, Column, Integer, String, MetaData
+from sqlalchemy import Column, Integer, String
+from database import Base
 
-metadata = MetaData()
+class Item(Base):
+    __tablename__ = "items"
 
-# Example table
-items = Table(
-    "items",
-    metadata,
-    Column("id", Integer, primary_key=True),
-    Column("name", String, nullable=False),
-    Column("description", String, nullable=True),  # new field included
-)
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    description = Column(String)
